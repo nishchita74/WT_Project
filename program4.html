@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+ <title>String and Number Functions</title>
+</head>
+<body>
+ <h1>String and Number Functions</h1>
+
+ <!-- Problem A: Reverse a String -->
+ <h2>Problem A: Reverse a String</h2>
+ <label for="inputString">Enter a String:</label>
+ <input type="text" id="inputString">
+ <button onclick="reverseString()">Reverse</button>
+ <p id="outputA"></p>
+
+ <!-- Problem B: Position of Left-Most Vowel -->
+ <h2>Problem B: Position of Left-Most Vowel</h2>
+ <label for="inputString2">Enter a String:</label>
+ <input type="text" id="inputString2">
+ <button onclick="leftMostVowel()">Find</button>
+ <p id="outputB"></p>
+
+ <!-- Problem C: Reverse a Number -->
+ <h2>Problem C: Reverse a Number</h2>
+ <label for="inputNumber">Enter a Number:</label>
+ <input type="number" id="inputNumber">
+ <button onclick="reverseNumber()">Reverse</button>
+ <p id="outputC"></p>
+
+ <script>
+  // Problem A: Reverse a String
+  function reverseString() {
+   var input = document.getElementById("inputString").value;
+   var output = "";
+   for (var i = input.length - 1; i >= 0; i--) {
+    output += input[i];
+   }
+   document.getElementById("outputA").innerHTML = output;
+  }
+
+  // Problem B: Position of Left-Most Vowel
+  function leftMostVowel() {
+   var input = document.getElementById("inputString2").value;
+   var vowels = ["a", "e", "i", "o", "u"];
+   for (var i = 0; i < input.length; i++) {
+    if (vowels.includes(input[i])) {
+     document.getElementById("outputB").innerHTML = "The left-most vowel is at position " + (i+1);
+     return;
+    }
+   }
+   document.getElementById("outputB").innerHTML = "No vowels found in the string.";
+  }
+
+  // Problem C: Reverse a Number
+  function reverseNumber() {
+   var input = document.getElementById("inputNumber").value;
+   var output = "";
+   while (input > 0) {
+    output += input % 10;
+    input = Math.floor(input / 10);
+   }
+   document.getElementById("outputC").innerHTML = output;
+  }
+ </script>
+</body>
+</html>
